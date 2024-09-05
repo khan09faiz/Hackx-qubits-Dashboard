@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>View Scooters</title>
+</head>
+<body>
+    <h1>Scooter List</h1>
+    <table border="1">
+        <tr>
+            <th>Barcode</th>
+            <th>Stage</th>
+            <th>Location</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for scooter in scooters %}
+        <tr>
+            <td>{{ scooter.barcode }}</td>
+            <td>{{ scooter.current_stage }}</td>
+            <td>{{ scooter.current_location }}</td>
+            <td>{{ scooter.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>View Tracking History</title>
+</head>
+<body>
+    <h1>Tracking History</h1>
+    <table border="1">
+        <tr>
+            <th>Scooter ID</th>
+            <th>Stage</th>
+            <th>Location</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for entry in tracking_history %}
+        <tr>
+            <td>{{ entry.scooter_id }}</td>
+            <td>{{ entry.stage }}</td>
+            <td>{{ entry.location }}</td>
+            <td>{{ entry.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

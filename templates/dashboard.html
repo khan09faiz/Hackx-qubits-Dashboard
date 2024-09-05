@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<h3>RFID Scan and Update Status</h3>
+<form method="POST" action="{{ url_for('update_status') }}">
+    <div class="mb-3">
+        <label for="rfid" class="form-label">RFID Tag</label>
+        <input type="text" class="form-control" id="rfid" name="rfid" required>
+    </div>
+    <div class="mb-3">
+        <label for="stage" class="form-label">Current Stage</label>
+        <select class="form-select" id="stage" name="stage" required>
+            <option value="">Select Stage</option>
+            <option value="Out for Delivery">Out for Delivery</option>
+            <option value="Received">Received</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">Current Location</label>
+        <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+    <button type="submit" class="btn btn-success">Update Status</button>
+</form>
+
+<h3 class="mt-4">Recent Updates</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>RFID</th>
+            <th>Stage</th>
+            <th>Location</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for update in updates %}
+        <tr>
+            <td>{{ update.rfid }}</td>
+            <td>{{ update.stage }}</td>
+            <td>{{ update.location }}</td>
+            <td>{{ update.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

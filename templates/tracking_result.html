@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Tracking Results for Scooter: {{ scooter.barcode }}</h2>
+<ul class="timeline">
+    {% for item in timeline %}
+    <li>
+        <strong>{{ item.stage }}</strong> - {{ item.location }}
+        <br>
+        <small>{{ item.timestamp }}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

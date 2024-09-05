@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to the Scooter Tracking System</h1>
+<p>Track your scooter’s journey from the manufacturer to your doorstep in real-time.</p>
+<a href="{{ url_for('tracking') }}" class="btn btn-primary">Track Your Scooter</a>
+<a href="{{ url_for('login') }}" class="btn btn-secondary">Admin Login</a>
+{% endblock %}
